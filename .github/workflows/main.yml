@@ -1,0 +1,44 @@
+name: Build and Create Installer
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up .NET
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.x' # or whatever version you are using
+
+    # Build the project in Release mode
+    - name: Build WinForms Project
+      run: dotnet publish -c Release -r win-x64 --self-contained
+
+    # Install WiX Toolset for building installer
+    - name: Install WiX Toolset
+      run: |
+        choco install wixtoolset --version=3.11.2
+        # You can adjust the WiX version based on your needs
+
+    # Create the installer using WiX
+    - name: Create MSI Installer with WiX
+      run: |
+        candle CaixaSucata.wxs
+        light CaixaSucata.wixobj -o CaixaSucataInstaller.msi
+
+    # Upload the installer artifact
+    - name: Upload MSI Installer
+      uses: actions/upload-artifact@v3
+      with:
+        name: Installer
+        path: CaixaSucataInstaller.msi
