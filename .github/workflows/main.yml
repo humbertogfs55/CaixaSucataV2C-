@@ -27,8 +27,9 @@ jobs:
     # Create the installer using WiX
     - name: Create MSI Installer with WiX
       run: |
-        candle CaixaSucata.wxs
-        light CaixaSucata.wixobj -o CaixaSucataInstaller.msi
+        cd Installer                     # Change directory to the Installer folder
+        candle CaixaSucata.wxs           # Run candle to generate the .wixobj file
+        light CaixaSucata.wixobj -o CaixaSucataInstaller.msi  # Create the .msi installer
 
     # Upload the installer artifact
     - name: Upload MSI Installer

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="CaixaSucata" Language="1033" Version="1.0.0.0" Manufacturer="HumbertoGfs" UpgradeCode="50f84150-4423-4d59-80aa-08f8c13a27e4">
+        <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+        <MajorUpgrade DowngradeErrorMessage="A newer version of CaixaSucata is already installed." />
+
+        <MediaTemplate />
+
+        <Feature Id="ProductFeature" Title="CaixaSucata" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+        </Feature>
+    </Product>
+
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="CaixaSucata" />
+            </Directory>
+        </Directory>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <Component Id="YourComponentId" Guid="PUT-A-NEW-GUID-HERE">
+                <File Id="YourFileId" Source="path\to\your\file.exe" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>
