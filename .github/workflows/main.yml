@@ -24,12 +24,6 @@ jobs:
     - name: Build WinForms Project
       run: dotnet publish -c Release -r win-x64 --self-contained
 
-    # Install WiX Toolset for building installer
-    - name: Install WiX Toolset
-      run: |
-        choco install wixtoolset --version=3.11.2
-        # You can adjust the WiX version based on your needs
-
     # Create the installer using WiX
     - name: Create MSI Installer with WiX
       run: |
