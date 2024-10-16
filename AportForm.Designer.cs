@@ -100,7 +100,7 @@
 
         private Label OpeningValueLabel;
         private TextBox ValueTextBox;
-        private Button CancelButton;
+        private new Button CancelButton;
         private Button ConfirmButton;
     }
 }
