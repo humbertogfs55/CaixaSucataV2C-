@@ -1,16 +1,19 @@
 ﻿using CaixaSucata.Models.ObjectModels;
 using OfficeOpenXml;
-using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LicenseContext = OfficeOpenXml.LicenseContext;
+
 
 namespace CaixaSucata.Controlls
 {
     public class ExcelExporter
     {
+        public ExcelExporter()
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+        }
+
         public static List<DateTime> GetDaysBetween(DateTime startDate, DateTime endDate)
         {
             List<DateTime> daysInRange = new List<DateTime>();
