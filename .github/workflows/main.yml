@@ -18,7 +18,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.x' # or whatever version you are using
+        dotnet-version: '6.x'
 
     # Build the project in Release mode
     - name: Build WinForms Project
@@ -27,9 +27,9 @@ jobs:
     # Create the installer using WiX
     - name: Create MSI Installer with WiX
       run: |
-        cd Installer                     # Change directory to the Installer folder
-        candle CaixaSucata.wxs           # Run candle to generate the .wixobj file
-        light CaixaSucata.wixobj -o CaixaSucataInstaller.msi  # Create the .msi installer
+        cd Installer
+        candle CaixaSucata.wxs
+        light CaixaSucata.wixobj -o CaixaSucataInstaller.msi  
 
     # Upload the installer artifact
     - name: Upload MSI Installer
