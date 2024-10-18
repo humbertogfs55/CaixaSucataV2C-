@@ -39,7 +39,7 @@
                 <File Id="BouncyCastle" Source="bin\Release\net6.0-windows\win-x64\BouncyCastle.Cryptography.dll" />
             </Component>
 
-            <Component Id="Accessibility" Guid="7a332958-bba6-4bd4-a175-68140639ef15">
+            <Component Id="Accessibility" Guid="7a332958-bba6-4bd4-a175-68140639ef17">
                 <File Id="Accessibility" Source="bin\Release\net6.0-windows\win-x64\Accessibility.dll" />
             </Component>
 
