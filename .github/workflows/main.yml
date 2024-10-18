@@ -7,51 +7,37 @@ on:
   pull_request:
 
 jobs:
-  checkout:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-  setup_dotnet:
-    runs-on: windows-latest
-    needs: checkout
-    steps:
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '6.x'
-
   build:
     runs-on: windows-latest
-    needs: setup_dotnet
-    steps:
-      - name: Build WinForms Project
-        run: dotnet publish -c Release -r win-x64 --self-contained
 
-  list_output_files:
-    runs-on: windows-latest
-    needs: build
     steps:
-      - name: List output files
-        run: dir bin\Release\net6.0-windows\win-x64
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-  create_installer:
-    runs-on: windows-latest
-    needs: list_output_files
-    steps:
-      - name: Create MSI Installer with WiX
-        run: |
-          cd Installer
-          candle CaixaSucata.wxs
-          light CaixaSucata.wixobj -o CaixaSucataInstaller.msi  
+    # Set up .NET
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.x'
 
-  upload_installer:
-    runs-on: windows-latest
-    needs: create_installer
-    steps:
-      - name: Upload MSI Installer
-        uses: actions/upload-artifact@v3
-        with:
-          name: Installer
-          path: CaixaSucataInstaller.msi
+    # Build the project in Release mode
+    - name: Build WinForms Project
+      run: dotnet publish CaixaSucata.csproj -c Release -r win-x64 --self-contained
+
+    # List files in the output directory
+    - name: List output files
+      run: dir bin\Release\net6.0-windows\win-x64
+
+    # Create the installer using WiX 
+    - name: Create MSI Installer with WiX
+      run: |
+        cd Installer
+        candle CaixaSucata.wxs
+        light CaixaSucata.wixobj -o CaixaSucataInstaller.msi  
+
+    # Upload the installer artifact
+    - name: Upload MSI Installer
+      uses: actions/upload-artifact@v3
+      with:
+        name: Installer
+        path: CaixaSucataInstaller.msi
