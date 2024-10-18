@@ -23,43 +23,42 @@
     <Fragment>
         <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
             <Component Id="MainExecutable" Guid="61b26456-fca7-4a11-bc86-9c31bf2863d0">
-                <File Id="MainExecutableFile" Source="bin\Release\net6.0-windows\win-x64\CaixaSucata.exe" />
+                <File Id="MainExecutableFile" Source="..\bin\Release\net6.0-windows\win-x64\CaixaSucata.exe" />
             </Component>
 
             <Component Id="DataBase" Guid="f6d7f31e-d7dd-4a06-b12d-58a561358042">
-                <File Id="DataBase" Source="bin\Release\net6.0-windows\win-x64\CaixaDB.db" />
+                <File Id="DataBaseFile" Source="..\bin\Release\net6.0-windows\win-x64\CaixaDB.db" />
             </Component>
 
-            <!-- Add DLL files here -->
             <Component Id="MainDll" Guid="3ebb1745-1dfa-4d8e-96ca-d6b72383063a">
-                <File Id="MainDll" Source="bin\Release\net6.0-windows\win-x64\CaixaSucata.dll" />
+                <File Id="MainDllFile" Source="..\bin\Release\net6.0-windows\win-x64\CaixaSucata.dll" />
             </Component>
 
             <Component Id="BouncyCastle" Guid="d7f7565d-e9f6-4851-84c2-614b583a6678">
-                <File Id="BouncyCastle" Source="bin\Release\net6.0-windows\win-x64\BouncyCastle.Cryptography.dll" />
+                <File Id="BouncyCastleFile" Source="..\bin\Release\net6.0-windows\win-x64\BouncyCastle.Cryptography.dll" />
             </Component>
 
             <Component Id="Accessibility" Guid="7a332958-bba6-4bd4-a175-68140639ef17">
-                <File Id="Accessibility" Source="bin\Release\net6.0-windows\win-x64\Accessibility.dll" />
+                <File Id="AccessibilityFile" Source="..\bin\Release\net6.0-windows\win-x64\Accessibility.dll" />
             </Component>
 
             <Component Id="PdfSharp" Guid="ee5b6381-37b7-473d-828b-5598d94c2fbb">
-                <File Id="PdfSharp" Source="bin\Release\net6.0-windows\win-x64\PdfSharp.dll" />
+                <File Id="PdfSharpFile" Source="..\bin\Release\net6.0-windows\win-x64\PdfSharp.dll" />
             </Component>
 
             <Component Id="SQLite" Guid="fed5ff44-e9f8-42ce-b4f4-e9f99057be24">
-                <File Id="SQLite" Source="bin\Release\net6.0-windows\win-x64\SQLite.Interop.dll" />
+                <File Id="SQLiteFile" Source="..\bin\Release\net6.0-windows\win-x64\SQLite.Interop.dll" />
             </Component>
 
             <Component Id="EPPlus" Guid="93cfe5ed-defd-492d-a4d4-b5c43bdfcb6b">
-                <File Id="EPPlus" Source="bin\Release\net6.0-windows\win-x64\EPPlus.dll" />
+                <File Id="EPPlusFile" Source="..\bin\Release\net6.0-windows\win-x64\EPPlus.dll" />
             </Component>
 
             <Component Id="Dapper" Guid="d93680b5-b483-4ac9-8489-dbea28acd244">
-                <File Id="Dapper" Source="bin\Release\net6.0-windows\win-x64\Dapper.dll" />
+                <File Id="DapperFile" Source="..\bin\Release\net6.0-windows\win-x64\Dapper.dll" />
             </Component>
 
-            <!-- Repeat the above block for each DLL file -->
+            <!-- Repeat the above block for each additional DLL file -->
         </ComponentGroup>
     </Fragment>
 </Wix>
