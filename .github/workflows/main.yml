@@ -26,11 +26,11 @@ jobs:
     runs-on: windows-latest
     needs: setup_dotnet
     steps:
-      - name: Build WinForms Project
-        run: dotnet publish CaixaSucata.csproj -c Release -r win-x64 --self-contained
       - name: List output files
         run: dir 
-
+      - name: Build WinForms Project
+        run: dotnet publish CaixaSucata.csproj -c Release -r win-x64 --self-contained
+      
   list_output_files:
     runs-on: windows-latest
     needs: build
