@@ -23,6 +23,10 @@ jobs:
     # Build the project in Release mode
     - name: Build WinForms Project
       run: dotnet publish -c Release -r win-x64 --self-contained
+      
+    # List files in the output directory
+    - name: List output files
+      run: dir bin\Release\net6.0-windows\win-x64
 
     # Create the installer using WiX
     - name: Create MSI Installer with WiX
