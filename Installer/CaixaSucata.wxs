@@ -22,8 +22,8 @@
 
     <Fragment>
         <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-            <Component Id="YourComponentId" Guid="c9d083fc-05f0-4880-bcb1-039ab8e48a59">
-                <File Id="YourFileId" Source="path\to\your\file.exe" />
+            <Component Id="CompletePackage" Guid="your-unique-guid-here">
+                <File Id="AllFiles" Source="bin\Release\net6.0-windows\win-x64\*.*" />
             </Component>
         </ComponentGroup>
     </Fragment>
